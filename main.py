@@ -45,5 +45,5 @@ while True:
 
         rw_client.write_message(vbml_client.compose([component]))
         time.sleep(1)
-    except:
-        pass
+    except Exception as e:
+        print(e)
