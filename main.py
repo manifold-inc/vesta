@@ -19,17 +19,11 @@ dotenv.load_dotenv()
 rw_client = vesta.ReadWriteClient(os.getenv("VEST_KEY", ""))
 vbml_client = vesta.VBMLClient()
 
-tick = 1
-cg = CoinGeckoAPI()
-tao = cg.get_price(ids="bittensor", vs_currencies="usd")["bittensor"]["usd"]
-eth = cg.get_price(ids="ethereum", vs_currencies="usd")["ethereum"]["usd"]
-
 while True:
     try:
-        if tick % 5 == 0:
-            cg = CoinGeckoAPI()
-            tao = cg.get_price(ids="bittensor", vs_currencies="usd")["bittensor"]["usd"]
-            eth = cg.get_price(ids="ethereum", vs_currencies="usd")["ethereum"]["usd"]
+        cg = CoinGeckoAPI()
+        tao = cg.get_price(ids="bittensor", vs_currencies="usd")["bittensor"]["usd"]
+        eth = cg.get_price(ids="ethereum", vs_currencies="usd")["ethereum"]["usd"]
 
         now_utc = datetime.now(pytz.utc).replace(microsecond=0)
         now_chicago = now_utc.astimezone(chicago_tz)
@@ -44,6 +38,6 @@ while True:
         )
 
         rw_client.write_message(vbml_client.compose([component]))
-        time.sleep(1)
+        time.sleep(16)
     except Exception as e:
         print(e)
