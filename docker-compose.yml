@@ -1,0 +1,4 @@
+services:
+  vesta:
+    build: .
+    env_file: .env
