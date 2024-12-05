@@ -35,7 +35,7 @@ while True:
         now_chicago.strftime("%Y-%m-%d\n%H:%M:%S")[:-6]
 
         component = Component(
-            f"{now_chicago}\n{{67}} Tao Price:  {tao} {{68}}\n{{67}} Eth Price: {eth} {{68}}",
+            f"{now_chicago}\n{{67}} Tao Price:   {tao} {{68}}\n{{67}} Eth Price: {eth} {{68}}",
             justify="center",
             align="center",
             width=22,
