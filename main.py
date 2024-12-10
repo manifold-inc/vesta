@@ -20,12 +20,11 @@ def get_models():
     try:
         res_models = httpx.get("https://targon.com/api/models")
         res_req = httpx.get("https://targon.com/api/stats/daily-requests")
-        print(res_models, res_req)
         models = res_models.json()
         reqs = res_req.json()
         total_models = len(models)
     except Exception as e:
-        print(e)
+        print('get_models error: ', e)
         return ""
     return f"Daily Stats\n{total_models} Models\n{reqs} Requests"
 
@@ -42,7 +41,7 @@ def get_coin_prices():
             "usd"
         ]
     except Exception as e:
-        print(e)
+        print('get_coin_price error: ', e)
         return ""
     return f"{{67}} Tao Price:  {tao:.2f} {{68}}\n{{67}} Eth Price: {eth:.2f} {{68}}\n{{67}} AKT Price:    {akt:.2f} {{68}}"
 
