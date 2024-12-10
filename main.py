@@ -22,7 +22,7 @@ def get_models():
     models = res_models.json()
     reqs = res_req.json()
     total_models = len(models)
-    return f"Total Models: {total_models}\nTotal Requests: {reqs}"
+    return f"Daily Stats\n{total_models} Models\n{reqs} Requests"
 
 
 cg = CoinGeckoAPI()
