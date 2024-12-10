@@ -59,6 +59,7 @@ while True:
                 component_text = default
 
         default = component_text
+        print(tick,component_text)
         component = Component(
             f"{curtime}\n{component_text}",
             justify="center",
