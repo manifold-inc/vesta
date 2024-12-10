@@ -49,7 +49,7 @@ while True:
     try:
         now_utc = datetime.now(pytz.utc).replace(microsecond=0)
         now_chicago = now_utc.astimezone(chicago_tz)
-        curtime = str(now_chicago.strftime("%Y-%m-%d\n%H:%M:%S"))[:-6]
+        curtime = str(now_chicago.strftime("%Y-%m-%d\n%H:%M:%S"))
         match tick:
             case tick if tick % 10 == 0:
                 component_text = get_models()
