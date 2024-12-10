@@ -61,9 +61,9 @@ while True:
         now_chicago = now_utc.astimezone(chicago_tz)
         curtime = str(now_chicago.strftime("%Y-%m-%d\n%H:%M:%S"))
         match tick:
-            case tick if tick % 10 == 0:
+            case tick if tick % 50 == 0:
                 component_text = get_models()
-            case tick if tick % 5 == 0:
+            case tick if tick % 25 == 0:
                 component_text = get_coin_prices()
             case _:
                 component_text = default
