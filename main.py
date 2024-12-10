@@ -51,7 +51,7 @@ dotenv.load_dotenv()
 rw_client = vesta.ReadWriteClient(os.getenv("VEST_KEY", ""))
 vbml_client = vesta.VBMLClient()
 
-tick = 0
+tick = 10
 
 default = ""
 
