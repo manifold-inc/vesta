@@ -17,11 +17,15 @@ chicago_tz = pytz.timezone("America/Chicago")
 
 
 def get_models():
-    res_models = httpx.get("https://targon.com/api/models")
-    res_req = httpx.get("https://targon.com/api/stats/dail-requests")
-    models = res_models.json()
-    reqs = res_req.json()
-    total_models = len(models)
+    try:
+        res_models = httpx.get("https://targon.com/api/models")
+        res_req = httpx.get("https://targon.com/api/stats/dail-requests")
+        models = res_models.json()
+        reqs = res_req.json()
+        total_models = len(models)
+    except Exception as e:
+        print(e)
+        return ""
     return f"Daily Stats\n{total_models} Models\n{reqs} Requests"
 
 
@@ -29,10 +33,16 @@ cg = CoinGeckoAPI()
 
 
 def get_coin_prices():
-    cg = CoinGeckoAPI()
-    tao = cg.get_price(ids="bittensor", vs_currencies="usd")["bittensor"]["usd"]
-    eth = cg.get_price(ids="ethereum", vs_currencies="usd")["ethereum"]["usd"]
-    akt = cg.get_price(ids="akash-network", vs_currencies="usd")["akash-network"]["usd"]
+    try:
+        cg = CoinGeckoAPI()
+        tao = cg.get_price(ids="bittensor", vs_currencies="usd")["bittensor"]["usd"]
+        eth = cg.get_price(ids="ethereum", vs_currencies="usd")["ethereum"]["usd"]
+        akt = cg.get_price(ids="akash-network", vs_currencies="usd")["akash-network"][
+            "usd"
+        ]
+    except Exception as e:
+        print(e)
+        return ""
     return f"{{67}} Tao Price:  {tao:.2f} {{68}}\n{{67}} Eth Price: {eth:.2f} {{68}}\n{{67}} AKT Price:    {akt:.2f} {{68}}"
 
 
