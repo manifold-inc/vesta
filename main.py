@@ -41,9 +41,9 @@ dotenv.load_dotenv()
 rw_client = vesta.ReadWriteClient(os.getenv("VEST_KEY", ""))
 vbml_client = vesta.VBMLClient()
 
-tick = 1
+tick = 0
 
-default = get_coin_prices()
+default = ""
 
 while True:
     try:
@@ -59,7 +59,7 @@ while True:
                 component_text = default
 
         default = component_text
-        print(tick,component_text)
+        print(tick, component_text)
         component = Component(
             f"{curtime}\n{component_text}",
             justify="center",
