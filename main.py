@@ -20,6 +20,7 @@ def get_models():
     try:
         res_models = httpx.get("https://targon.com/api/models")
         res_req = httpx.get("https://targon.com/api/stats/dail-requests")
+        print(res_models, res_req)
         models = res_models.json()
         reqs = res_req.json()
         total_models = len(models)
