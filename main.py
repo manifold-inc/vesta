@@ -26,7 +26,7 @@ def get_models():
     except Exception as e:
         print('get_models error: ', e)
         return ""
-    return f"Daily Stats\n{total_models} Models\n{reqs} Requests"
+    return f"Daily Stats\n{total_models} Models\n{reqs['today']} Today\n{reqs['hour']} Last Hour"
 
 
 cg = CoinGeckoAPI()
